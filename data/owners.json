@@ -1,0 +1,35 @@
+[
+  {
+    "name":"Tommy",
+    "type": "Teacher",
+    "dob": "03/21/2020",
+    "snack":"pizza",
+    "friend":[11],
+    "id":1
+    
+  },
+  {
+    "name":"Mary",
+    "type": "Doctor",
+    "dob": "11/27/2020",
+    "snack":"salad",
+    "friend":[12],
+    "id":2
+  },
+  {
+    "name":"Jo",
+    "type": "Baker",
+    "dob": "12/18/2020",
+    "snack":"croissant",
+    "friend":[13],
+    "id":3
+  },
+  {
+    "name":"Sally",
+    "type": "Chief",
+    "dob": "1/18/2020",
+    "snack":"candy bar",
+    "friend": [14],
+    "id":4
+  }
+]

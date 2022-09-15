@@ -1,0 +1,44 @@
+[
+  { "name":"Fuzzy",
+    "type": "chinchilla ",
+    "dob": "01/21/2020",
+    "snack": "carrots",
+    "friend": [1],
+    "id": 11
+    
+  },
+  
+  {
+    "name":"Color Box",
+    "type": "house cat ",
+    "dob": "03/12/2016",
+    "snack": "tuna",
+    "friend": [2],
+    "id": 12
+    
+    
+  },
+  
+  {
+    "name":"Lizzy",
+    "type": "iguana ",
+    "dob": "11/27/2008",
+    "snack": "flies",
+    "friend": [3],
+    "id": 13
+    
+    
+    
+  },
+  
+  {
+   "name":"Sam Sam",
+    "type": "rat",
+    "dob": "05/23/2021",
+    "snack": "apples",
+    "friend": [4],
+    "id": 14
+    
+    
+  }
+]
