@@ -5,7 +5,7 @@ export default function Layout({children, home}){
   return(
     <div>
       <Head>
-        <title>Pet and Owner App</title>
+        <title>WP App</title>
       </Head>
       <main>{children}</main>
       {(!home) && (<Link href="/">

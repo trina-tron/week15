@@ -1,32 +1,36 @@
-import Head from 'next/head';
-
-import { getSortedListPet, getSortedListOwner } from '../lib/data';
+//import Head from 'next/head';
+import { getSortedList } from '../lib/data';
 import Layout from '../components/layout';
-import FriendList from '../components/relationship';
+import Link from 'next/link';
+//import FriendList from '../components/relationship';
 
 
 export async function getStaticProps () {
-  const owner = await getSortedListOwner();
-  const pet = await getSortedListPet();
+  const allData = await getSortedList();
+  
   return {
       props: {
-          owner,
-          pet
+          allData
+          
       }
   }
 };
 
 
-export default function Home({owner, pet}){
+export default function Home({allData}){
   return(
     <Layout home>
-      <h1 className="text-center">Owner and Pets</h1>
+      <h1 className="text-center">Blog Posts</h1>
       <div className="list-group">
       </div>
        <div className="row align-center">
-      
-         <FriendList family={owner} />
-          <FriendList family={pet} isPet />
+      {allData.map(({id, name})=>(
+        <Link key={id} href={`\${id}`}>
+        <a className='list-group-item list-group-active'>
+          {name}
+        </a>
+        </Link>
+      ))}
         </div>
     </Layout> 
   )
