@@ -20,18 +20,31 @@ export async function getStaticProps () {
 export default function Home({allData}){
   return(
     <Layout home>
-      <h1 className="text-center">Blog Posts</h1>
-      <div className="list-group">
+    <div className='container'>
+      <div className='row'>
+      <div className='col-12'>
+          <h1 className="text-center p-2">Quotes</h1>
+          <h5 className="text-center p-2">Check out the quotes below </h5>
+      </div> 
       </div>
-       <div className="row align-center">
-      {allData.map(({id, name})=>(
-        <Link key={id} href={`\${id}`}>
-        <a className='list-group-item list-group-active'>
-          {name}
-        </a>
-        </Link>
-      ))}
+       <div className='row text-center'>
+        <div className='col-12'>
+            <div className="list-group d-inline-flex">
+                  {allData.map(({id, name})=>(
+                    <Link key={id} href={id}>
+                    <a className='list-group-item list-group-active   '>
+                      {name}
+                    </a>
+                    </Link>
+                  ))}
+                    
+       
+       </div>
+      
         </div>
+      </div>
+    </div>
+      
     </Layout> 
   )
 }

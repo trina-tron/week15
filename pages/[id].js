@@ -1,4 +1,9 @@
-import { getAllIds, getData } from "../lib/data";
+
+
+//import Head from 'next/head';
+import Layout from '../components/layout';
+import {getAllIds, getData} from '../lib/data';
+
 
 export async function getStaticProps({ params }) {
   const itemData = await getData (params.id);
@@ -11,20 +16,37 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllIds();
+  const paths2 = await getAllIds();
   return {
-    paths:[],
+    paths:paths2,
     fallback: false
   };
 }
 
 
-const Details = ({itemData}) => {
-  return ( 
-    <div>
-      <h1>{itemData.post_title}</h1>
-    </div>
-   );
+
+export default function Entry({itemData}){
+//console.log(itemData);
+var regex = /(<([^>]+)>)/ig
+,   content = itemData.post_content
+,   result = content.replace(regex, "");
+
+content = itemData.post_content
+  return(
+    <Layout>
+      <div className="row text-center">
+        <h1>{itemData.post_title}</h1>
+      </div>
+      <article className="card col-6 m-auto">
+        <div className="card-body">
+            <h5 className="card-title">{result}</h5>
+        </div>
+        
+        
+      </article>
+    </Layout>
+  )
 }
- 
-export default Details;
+
+
+
