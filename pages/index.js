@@ -2,7 +2,7 @@
 import { getSortedList } from '../lib/data';
 import Layout from '../components/layout';
 import Link from 'next/link';
-//import FriendList from '../components/relationship';
+
 
 
 export async function getStaticProps () {
@@ -23,8 +23,8 @@ export default function Home({allData}){
     <div className='container'>
       <div className='row'>
       <div className='col-12'>
-          <h1 className="text-center p-2">Quotes</h1>
-          <h5 className="text-center p-2">Check out the quotes below </h5>
+          <h1 className="text-center p-2">Contacts</h1>
+          <h5 className="text-center p-2">Check out these famous people </h5>
       </div> 
       </div>
        <div className='row text-center'>

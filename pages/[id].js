@@ -27,11 +27,12 @@ export async function getStaticPaths() {
 
 export default function Entry({itemData}){
 //console.log(itemData);
-var regex = /(<([^>]+)>)/ig
+/*var regex = /(<([^>]+)>)/ig
 ,   content = itemData.post_content
 ,   result = content.replace(regex, "");
 
-content = itemData.post_content
+content = itemData.post_content*/
+
   return(
     <Layout>
       <div className="row text-center">
@@ -39,10 +40,8 @@ content = itemData.post_content
       </div>
       <article className="card col-6 m-auto">
         <div className="card-body">
-            <h5 className="card-title">{result}</h5>
+            <h5 className="card-title">{itemData.acf_fields}</h5>
         </div>
-        
-        
       </article>
     </Layout>
   )
