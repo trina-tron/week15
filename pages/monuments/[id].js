@@ -3,6 +3,7 @@
 //import Head from 'next/head';
 import Layout from '../../components/layout';
 import {getAllIdsMon, getDataMon} from '../../lib/data';
+import Link from 'next/link';
 
 
 export async function getStaticProps({ params }) {
@@ -11,58 +12,59 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       itemData
-    }
+    },
+    revalidate:60,
   };
 }
 
 export async function getStaticPaths() {
-  const paths2 = await getAllIdsMon();
+  const paths = await getAllIdsMon();
   return {
-   paths: paths2,
+   paths,
    fallback: false
   };
 }
 
 
 
-export default function Field({itemData}){
+export default function Field1({itemData}){
 //console.log(itemData);
 /*var regex = /(<([^>]+)>)/ig
 ,   content = itemData.post_content
 ,   result = content.replace(regex, "");
 
 content = itemData.post_content*/
-/* var string1 = JSON.stringify(itemData);
 
-var parsed = JSON.parse(string1);  
-const obj = parsed;
-obj.forEach( 
-  */  
 
       let x = '{"' + itemData.acf_fields + '"}';
       x = x.replace(/,/g,'","');
       x = x.replace(/:/g,'":"');
       console.log(x)
-      let y = JSON.parse(x);
-      console.log(y)
-      console.log(y.name);
-      itemData.acf_fields = y;
-    
+      var y = JSON.parse(x);
+     console.log(y)
+     //console.log(y.name);
+     //itemData.acf_fields = y;
+      
 
   
   return(
     <Layout>
-      <div className="row text-center">
-        <h1>{itemData.post_title}</h1>
-      </div>
-      <article className="card col-6 m-auto">
-        <div className="card-body">
-            <h5 className="card-title">{y.name}</h5>
-        </div>
-      </article>
-    </Layout>
+    <div className="row text-center">
+      <h1>{itemData.post_title}</h1>
+    </div>
+    <div className="card w-50 mx-auto text-bg-light mb-3">
+  <div className="card-header text-center">Famous Monument in {y.city} </div>
+  <div className="card-body">
+    <h5 className="card-title">{y.name}</h5>
+    <p className="card-text">{y.name} in {y.city}, {y.country} is {y.age} and is most known for being the {y.known_for}.</p>
+ <Link href='/monuments/learn'>
+ <a className="btn btn-primary">Go Back</a>
+
+ </Link>
+  </div>
+</div>
+    
+  </Layout>
   )
 }
-
-
 

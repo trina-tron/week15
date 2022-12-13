@@ -1,44 +1,37 @@
 //import Head from 'next/head';
-import { getSortedList } from '../lib/data';
 import Layout from '../components/layout';
 import Link from 'next/link';
 
 
-
-export async function getStaticProps () {
-  const allData = await getSortedList();
-  
-  return {
-      props: {
-          allData
-          
-      }
-  }
-};
-
-
-export default function Home({allData}){
+export default function Home(){
   return(
     <Layout home>
     <div className='container'>
       <div className='row'>
       <div className='col-12'>
-          <h1 className="text-center p-2">Contacts</h1>
-          <h5 className="text-center p-2">Check out these famous people </h5>
+          <h1 className="text-center p-2">Travel the World</h1>
+          <h4 className="text-center p-2">Choose one of the categories below </h4>
+           <h5 className="text-center p-2">See the five different countries featured </h5>
       </div> 
       </div>
        <div className='row text-center'>
         <div className='col-12'>
             <div className="list-group d-inline-flex">
-                  {allData.map(({id, name})=>(
-                    <Link key={id} href={id}>
-                    <a className='list-group-item list-group-active   '>
-                      {name}
+                    <Link href='/monuments/learn'>
+                    <a className='list-group-item list-group-active'>
+                     Monuments
                     </a>
                     </Link>
-                  ))}
-                    
-       
+                    <Link href='/restaurants/eat'>
+                    <a className='list-group-item list-group-active'>
+                     Restaurants
+                    </a>
+                    </Link>
+                    <Link href='/museums/see'>
+                    <a className='list-group-item list-group-active'>
+                     Museums
+                    </a>
+                    </Link>
        </div>
       
         </div>

@@ -1,17 +1,14 @@
 import Head from 'next/head';
-import Link from 'next/link';
+import Nav from '../components/nav';
 
-export default function Layout({children, home}){
+export default function Layout({children}){
   return(
     <div>
       <Head>
         <title>WP App</title>
       </Head>
+      <Nav/>
       <main>{children}</main>
-      {(!home) && (<Link href="/">
-        <a className="btn btn-primary mt-3">←Back to Home</a>
-        </Link>
-        )}
     </div>
   );
 }

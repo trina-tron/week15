@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Nav(){
   return(
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary ps-5">
  <Link href="/">
  <a className="navbar-brand" >Travel</a>
  </Link>
@@ -15,7 +15,7 @@ export default function Nav(){
 
       <li className="nav-item active">
       <Link href="/">
-      <a className="nav-link">Home <span class="sr-only"></span></a>
+      <a className="nav-link">Home <span className="sr-only"></span></a>
       </Link>
       </li>
 
